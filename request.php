@@ -13,7 +13,7 @@ $numberPhone = $_REQUEST['numberPhone'] ?: '';
 class RequestValidatorTest{
 	  public function __construct() {
        		if($requestFunction == ''){
-				$this->ValidateNumbar($url, $data),
+				$this->ValidateNumbar();
 				echo 'valid phonenumber';
        		} else {
        			echo 'not valid';
