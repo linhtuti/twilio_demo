@@ -24,7 +24,7 @@ function getNumberValidated(){
 	$arrayObject = array('numberPhone'=>$numberPhone, 'code'=>'12357');
 	foreach ($client->account->outgoing_caller_ids as $caller_id) {
 		$arrayObject[] = $caller_id->friendly_name;
-		
+	}
 	echo json_encode($arrayObject);
 }
 
