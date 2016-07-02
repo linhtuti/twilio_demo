@@ -8,8 +8,8 @@ $appSid = getenv('TWILIO_APP_SID');
 
 
 
-$requestFunction = $_REQUEST['requestFunction']?:'';
-$numberPhone = $_REQUEST['numberPhone']?:'';
+$requestFunction = $_POST['requestFunction']?:'';
+$numberPhone = $_POST['numberPhone']?:'';
 
 
 function ValidateNumber(){
@@ -21,7 +21,7 @@ function ValidateNumber(){
 }
 
 function getNumberValidated(){	
-	$client = new Services_Twilio('AC123', '123');
+	$client = new Services_Twilio($accountSid, $authToken);
 	$arrayObject = array('numberPhone'=>$numberPhone, 'code'=>'12357');
 	
 	$callers = $client->account->outgoing_caller_ids->getIterator(0, 50, array()); 
@@ -37,9 +37,9 @@ function getNumberValidated(){
 
 if($requestFunction == 'requestValid'){
 	ValidateNumber();
-	echo 'valid phonenumber';
+
 } else if($requestFunction = 'requestValidList'){
 	getNumberValidated();
-	echo 'not valid';
+
 }
 ?>
