@@ -9,10 +9,10 @@ $appSid = getenv('TWILIO_APP_SID');
 
 
 $requestFunction = $_REQUEST['requestFunction']?:'';
-$numberPhone = $_REQUEST['numberPhone'] ?: '';
+$numberPhone = $_REQUEST['numberPhone']?:'';
 class RequestValidatorTest{
 	  public function __construct() {
-       		if($requestFunction == ''){
+       		if($requestFunction == 'requestValid'){
 				$this->ValidateNumbar();
 				echo 'valid phonenumber';
        		} else {
