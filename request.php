@@ -1,5 +1,5 @@
 <?php
-require('Services/Twilio.php');
+require_once('Services/Twilio.php');
 header('Content-Type: text/xml');
 $accountSid = getenv('TWILIO_ACCOUNT_SID');
 $authToken = getenv('TWILIO_AUTH_TOKEN');
@@ -22,7 +22,7 @@ function ValidateNumber(){
 
 function getNumberValidated(){	
 	$client = new Services_Twilio($accountSid, $authToken);
-	$arrayObject = array('numberPhone'=>$numberPhone, 'code'=>'12357');
+	$arrayObject = array('numberPhone'=>$numberPhone);
 	
 	$callers = $client->account->outgoing_caller_ids->getIterator(0, 50, array()); 
  
