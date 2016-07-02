@@ -12,8 +12,9 @@ $requestFunction = $_REQUEST['requestFunction']?:'';
 $numberPhone = $_REQUEST['numberPhone']?:'';
 class RequestValidatorTest{
 	  public function __construct() {
+	   $this->ValidateNumbar();
        		if($requestFunction == 'requestValid'){
-				$this->ValidateNumbar();
+// 				$this->ValidateNumbar();
 				echo 'valid phonenumber';
        		} else {
        			echo 'not valid';
@@ -23,8 +24,13 @@ class RequestValidatorTest{
     public function ValidateNumbar(){
 	   $client = new Services_Twilio($accountSid, $authToken);
  		$response = $client->account->outgoing_caller_ids->create($numberPhone);
- 		echo json_encode(array('numberPhone'=>$numberPhone, 'code'=>$response));
-// 	echo json_encode(array('numberPhone'=>$numberPhone, 'code'=>'12357'));
+//  		echo json_encode(array('numberPhone'=>$numberPhone, 'code'=>$response));
+ 		
+		// $client = new Services_Twilio('AC123', '123');
+// 		foreach ($client->account->outgoing_caller_ids as $caller_id) {
+// 		  print $caller_id->friendly_name;
+// 		}
+	echo json_encode(array('numberPhone'=>$numberPhone, 'code'=>'12357'));
     }
 }
 
