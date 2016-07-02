@@ -1,5 +1,5 @@
 <?php
-require('/Services/Twilio/Capability.php');
+require('Services/Twilio/Capability.php');
 header('Content-Type: application/json');
 
 // AccountSid and AuthToken can be found in your account dashboard
